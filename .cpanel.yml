@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/papifor1/public_html/
-    - cp -R ./ $DEPLOYPATH
+    - /bin/cp -R ./ $DEPLOYPATH
