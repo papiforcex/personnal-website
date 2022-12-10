@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body onload="checkMobile()">
+        <h1 id="mainTitle">Système d'économie</h1>
+        <p>La fonctionnalité d'économie est une sorte d'équivalent du système de niveau du bot MEE6, sauf qu'ici, au lieu de gagner des points d'exp, vous gagnez de l'argent en €, plus précisément 2€ par message. Il s'agit donc d'une sorte de mélange entre le jeu du bot <a href="https://epic-rpg.fandom.com/wiki/EPIC_RPG_Wiki" target="_blank">EPIC RPG</a> et le système à niveau de <a href="https://mee6.xyz/plugins/engagement-and-fun" target="_blank">MEE6</a>. Les points ainsi récoltés peuvent être utilisé dans la boutique du bot, accéssible via la commande <em class="command">&Boutique</em>, pour débloquer des avantages et ou des fonctionnalités exclusives. Il est tout aussi possible de gagner des items à valeur réelle tel que des abonnements Discord Nitro, des cartes Steam, Google Play, PSN, Spotify Premium, etc... dans le cadre d'évènements organisés pour. Ces dernière vous seront fournit en main propre numériquement par les développeurs du bot en respectant les conditions d'utilisation des applications ZiBO Series. Pour des informations supplémentaires, merci de lire la FAQ ci-dessous:</p>
+        <ul>
+            <li>
+                <h3>Comment afficher ma carte <u>ZiBO BanK</u> ?</h3>
+                <div id="faqParent1">
+                    <img src="../images/Economy_Card_Infos.png">
+                    <div class="infoDescription">
+                        <p>Vous pouvez afficher la carte qui vous est attribuée à la création de votre compte <u>ZiBO BanK</u> en exécutant la commande <em class="command">&Carte</em>.<br><br>Le principe de cette dernière est simple, elle vous indique le montant disponible sur votre carte <em>(section <span class="indicators">1</span> de l'image ci-dessus)</em> ainsi que le montant stocké dans votre compte en banque <em>(section <span class="indicators">2</span> de l'image ci-dessus)</em>. Vous pouvez tout aussi retirer de l'argent de votre compte en banque pour le déposer sur votre carte en exécutant la commande <em class="command">&Retirer</em> ou déposer de l'argent de votre carte vers votre compte en banque via la commande <em class="command">&Déposer</em>.<br><br>Vous trouverez aussi sur votre carte des informations complémentaire tel que le numéro de la carte <u>factice</u> <em>(section <span class="indicators">3</span> de l'image ci-dessus)</em> qui correspond à votre identifiant Discord. Vous trouverez aussi le nom du propriétaire du compte en bas à gauche de la carte <em>(section <span class="indicators">4</span> de l'image ci-dessus)</em>.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h3>Pourquoi il y a des drops dans l'Inter-Chat ?</h3>
+                <div id="faqParent2">
+                    <img src="../images/Capture_d_écran_2022-05-21_153100.png">
+                    <div class="infoDescription">
+                        <p>Si le système de chat Inter-Serveur du bot est activé dans votre serveur, vous aurez directement accès aux drops quotidiens qu'offre le bot. Ces drops, une fois récupéré, offrent une certaine somme allant de 1 à 500€ au premier utilisateur l'ayant récupéré. Cette somme est directement versée sur la carte <u>ZiBO BanK</u> de l'utilisateur l'ayant récupéré.<br><br>Après que le drop ai été récupéré, il n'est plus possible pour les autres utilisateurs de le récupérer. Un nouveau drop sera envoyé à une certaine heure qui sera automatiquement calculée par le bot en fonction du moment de la journée et du taux d'activité de l'Inter-Chat au moment du drop.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h3>Est-ce que je peux changer le skin de ma carte ?</h3>
+                <div id="faqParent3">
+                    <img src="../images/Economy_Card_Skin_Pack.png">
+                    <div class="infoDescription">
+                        <p>En un mot, oui ! Vous pouvez choisir parmis 5 skins par défaut en plus de celui qui vous est proposé dès la création de votre compte. Afin de changer de skin, il suffit d'exécuter la commande <em class="command">&Banque Carte</em> suivi du <em class="command">numéro correspondant</em> à l'un des skin ci-dessus.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </body>
+    <style>
+        body{
+            background-color: #181a1d;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            padding: 5px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        p, a{
+            font-size: 16px;
+            color: #ccc;
+        }
+        .botSign{
+            background: #7289da;
+            color: white;
+            padding: 3px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .command, a{
+            color: #ff5f00;
+        }
+        .indicators{
+            color: white;
+            padding-left: 5.5px;
+            padding-right: 5.5px;
+            border: solid 2px #ff5f00;
+            border-radius: 50%;
+        }
+        #titleContainer{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: calc(100% - 75px)
+        }
+        #faqParent1, #faqParent2, #faqParent3{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        li{
+            list-style: none;
+        }
+        h1{
+            font-size: 30px;
+        }
+        h3{
+            color: #ff5f00;
+            font-size: 20px;
+        }
+        li img{
+            pointer-events: none;
+            border-radius: 10px;
+            border: solid #ff5f00 2px;
+            max-width: 100%;
+            width: 50%;
+            height: 25%;
+        }
+        .infoDescription{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <script>
+        function checkMobile(){
+            if(window.innerWidth < window.innerHeight){
+                document.getElementById("faqParent1").style.display = "block";
+                document.getElementById("faqParent2").style.display = "block";
+                document.getElementById("faqParent3").style.display = "block";
+
+                document.getElementsByTagName("h1")[0].style.fontSize = "1.5em";
+
+                for(let index = 0; index < document.getElementsByTagName("li").length; ++index){
+                    document.getElementsByTagName("li")[index].style.width = "100%";
+                    document.getElementsByTagName("li")[index].getElementsByTagName("img")[0].style.width = "calc(100% - 20px)";
+                }
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,32 @@
+{
+    "landing": {
+        "subtitle": {
+            "fr": "Vous souhaite un joyeux noël !",
+            "en": "Wish you a merry christmas !"
+        },
+        "languages": {
+            "fr": "Merci de seléctionner une langue afin de continuer ;)",
+            "en": "Please select a language bellow to continue ;)"
+        },
+        "buttons": {
+            "french": {
+                "fr": "Continuer en français",
+                "en": "Switch to french"
+            },
+            "english": {
+                "fr": "Passer en anglais",
+                "en": "Continue in english"
+            }
+        },
+        "copyrights": {
+            "footer": {
+                "fr": "Tout droits réservés",
+                "en": "All rights reserved"
+            },
+            "background": {
+                "fr": "Image d'arrière plan par",
+                "en": "Background image by"
+            }
+        }
+    }
+}

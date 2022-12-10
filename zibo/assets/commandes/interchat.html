@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body onload="checkMobile()">
+        <h1 id="mainTitle">Chat Inter-Serveur</h1>
+        <p>Le chat Inter-Serveur est une fonctionalité permettant de communiquer avec des membres d'autres serveurs, le tout en passant par un salon textuel. Pour se faire, la fonctionnalité doit être activée dans le serveur concerné. Il suffira dès lors d'exécuter la commande <em class="command">&InterChat</em> qui vous affichera les démarches à suivre afin d'activer la fonctionnalité. Pour des informations supplémentaires, merci de lire la FAQ ci-dessous:</p>
+        <ul>
+            <li>
+                <h3>Pourquoi tout le monde est un <a class="botSign">BOT</a> ?</h3>
+                <div id="faqParent1">
+                    <img src="../images/Screenshot_20220508-221139_Discord.png">
+                    <div class="infoDescription">
+                        <p>Si vous voyez un signe <a class="botSign">BOT</a> à coté d'un nom d'utilisateur, cela signifie que la personne concernée communique depuis un autre serveur que le vôtre. Vous apparaîtrez de la même façon dans les autres serveurs.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h3>Pourquoi je vois à chaque fois marqué <em>"aucun message"</em> ?</h3>
+                <div id="faqParent2">
+                    <img src="../images/Screenshot_20220509-195256_Discord.png">
+                    <div class="infoDescription">
+                        <p>Si vous voyez <em>"aucun message"</em> lorsqu'une personne essaye d'envoyer un autocollant Discord c'est tout simplement parce que l'API Discord ne permet pas encore aux bot d'envoyer des autocollants.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h3>Pourquoi je ne peux pas envoyer de liens  ou certains mots dans le salon ?</h3>
+                <div id="faqParent3">
+                    <img src="../images/Screenshot_20220514-225835_Discord.png">
+                    <div class="infoDescription">
+                        <p>Si le bot réagit à votre message avec un rond rouge et vous envoie un message d'avertissement, cela signifie que votre message contient un mot grossier ou un lien. Le bot ne transmet pas les liens envoyés dans un salon Inter-Chat afin d'éviter une quelconque tentative d'arnaque ou de hameçonnage ainsi que la projection de contenu de type <a href="https://fr.wikipedia.org/wiki/Not_safe_for_work" target="_blank">NSFW</a> ou de mots grossiers.<br><br>Lors de la réception de cet avertissement, un rapport sera transmit à l'équipe de développeurs du bot et en cas de potentiel abus, vous risquez d'être bannis du système de chat Inter-Serveur. En cas de spam de liens suspicieux, votre dossier sera immédiatement envoyé à l'équipe Discord.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </body>
+    <style>
+        body{
+            background-color: #181a1d;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            padding: 5px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        p, a{
+            font-size: 16px;
+            color: #ccc;
+        }
+        .botSign{
+            background: #7289da;
+            color: white;
+            padding: 3px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .command, a{
+            color: #ff5f00;
+        }
+        #titleContainer{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: calc(100% - 75px)
+        }
+        #faqParent1, #faqParent2, #faqParent3{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        li{
+            list-style: none;
+        }
+        h1{
+            font-size: 30px;
+        }
+        h3{
+            color: #ff5f00;
+            font-size: 20px;
+        }
+        li img{
+            pointer-events: none;
+            border-radius: 10px;
+            border: solid #ff5f00 2px;
+            max-width: 100%;
+            width: 50%;
+            height: 25%;
+        }
+        .infoDescription{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <script>
+        function checkMobile(){
+            if(window.innerWidth < window.innerHeight){
+                document.getElementById("faqParent1").style.display = "block";
+                document.getElementById("faqParent2").style.display = "block";
+                document.getElementById("faqParent3").style.display = "block";
+
+                document.getElementsByTagName("h1")[0].style.fontSize = "1.5em";
+
+                for(let index = 0; index < document.getElementsByTagName("li").length; ++index){
+                    document.getElementsByTagName("li")[index].style.width = "100%";
+                    document.getElementsByTagName("li")[index].getElementsByTagName("img")[0].style.width = "calc(100% - 20px)";
+                }
+            }
+        }
+    </script>
+</html>
