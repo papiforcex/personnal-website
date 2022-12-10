@@ -6,7 +6,22 @@ $(document).ready(() => {
         const element = event.composedPath()[0]["type"] == "button" && event.composedPath()[0]["name"] == "lang" ? event.composedPath()[0] : null;
         if (element != null) {
             if (lang == element["value"]) {
-                window.open(`./${lang}/`, "_self");
+                const background = document.getElementById("wallpaper");
+                const panel = document.getElementById("container");
+
+                background.style.animation = "wallLowSaturation linear 1s";
+                panel.style.animation = "paneLowSaturation linear 1s";
+
+                setTimeout(() => {
+                    background.style.filter = "saturate(0) opacity(0)";
+                    panel.style.filter = "saturate(0)";
+
+                    panel.style.animation = "panelHider linear 1s";
+                    
+                    setTimeout(() => {
+                        window.open(`./${lang}/`, "_self");
+                    }, .9 * 1000);
+                }, .9 * 1000);
             } else {
                 updateLang(element["value"]);
             }
@@ -21,7 +36,7 @@ $(document).ready(() => {
  * @param {string} value Valeur du cookie
  * @param {number} expirationDay Durée de vie (en jours)
  */
- function setCookie(name, value, expirationDay) {
+function setCookie(name, value, expirationDay) {
     const currentDate = new Date();
     currentDate.setTime(currentDate.getTime() + (expirationDay * 24 * 60 * 60 * 1000));
     document.cookie = `${name} = ${value}; expires = ${currentDate.toUTCString()}; path = /`;
