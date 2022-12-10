@@ -1,3 +1,19 @@
+var lang = getCookie("language") != null && getCookie("language") != "undefined" ? getCookie("language") : "en";
+
+$(document).ready(() => {
+    updateLang(lang);
+    document.addEventListener("click", (event) => {
+        const element = event.composedPath()[0]["type"] == "button" && event.composedPath()[0]["name"] == "lang" ? event.composedPath()[0] : null;
+        if (element != null) {
+            if (lang == element["value"]) {
+                window.open(`./${lang}/`, "_self");
+            } else {
+                updateLang(element["value"]);
+            }
+        }
+    });
+});
+
 /**
  * ## Création de cookies
  * Cette fonction permet de créer un cookie.
@@ -18,11 +34,11 @@
  * @returns Notre cookie
  */
 function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
+    const name = `${cname}=`;
+    const cookies = decodeURIComponent(document.cookie).split(';');
+
+    for (let i = 0; i < cookies.length; i++) {
+        let c = cookies[i];
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
@@ -32,8 +48,6 @@ function getCookie(cname) {
     }
     return null;
 }
-
-var lang = getCookie("language") != null ? getCookie("language") : "en";
 
 /**
  * ## Mise à jour des droits d'auteurs
@@ -68,35 +82,22 @@ function updateCopy(websiteAuthor = "All rights reserved", backgroundAuthor = "B
  * affichées sur le site en fonction des choix linguistiques
  * de l'utilisateur.
  */
-function updateLang() {
+function updateLang(language) {
     fetch('./assets/datas/langs.json')
         .then((result) => {
             if (result.ok) {
                 result.json().then((page) => {
                     for (const button of document.getElementsByTagName("button")) {
-                        button.value == "fr" ? button.innerHTML = page.landing.buttons.french[lang] : button.innerHTML = page.landing.buttons.english[lang];
+                        button.value == "fr" ? button.innerHTML = page.landing.buttons.french[language] : button.innerHTML = page.landing.buttons.english[language];
                     }
-                    document.getElementsByTagName("h3")[0].innerHTML = page.landing.subtitle[lang].slice(0, 31);
-                    document.getElementsByTagName("p")[0].innerHTML = page.landing.languages[lang];
-                    updateCopy(page.landing.copyrights.footer[lang], page.landing.copyrights.background[lang]);
+                    document.getElementsByTagName("h3")[0].innerHTML = page.landing.subtitle[language].slice(0, 31);
+                    document.getElementsByTagName("p")[0].innerHTML = page.landing.languages[language];
+                    updateCopy(page.landing.copyrights.footer[language], page.landing.copyrights.background[language]);
                 });
-                setCookie("language", lang, 3);
+                setCookie("language", language, 3);
+                lang = language;
             } else {
                 alert("Une erreur est survenu lors du chargement des informations linguistiques, merci de recharger la page et de réessayer.")
             }
         });
 }
-
-$(document).ready(() => {
-    document.addEventListener("click", (event) => {
-        const element = event.composedPath()[0]["type"] == "button" && event.composedPath()[0]["name"] == "lang" ? event.composedPath()[0] : null;
-        if (element != null) {
-            if (lang == element["value"]) {
-                window.open(`./${lang}/`, "_self");
-            } else {
-                lang = element["value"];
-                updateLang();
-            }
-        }
-    });
-});
